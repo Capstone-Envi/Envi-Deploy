@@ -18,8 +18,10 @@ services:
       - '8080:8080'
     depends_on:
       - db
+      - mosquitto
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
+      MQTT_BROKER: mosquitto
   mosquitto:
     container_name: mosquitto
     image: eclipse-mosquitto
