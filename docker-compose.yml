@@ -21,7 +21,13 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
   mosquitto:
-    image: eclipse-mosquitto
+    container_name: mosquitto
+    image: mosquitto
     ports:
       - 1883:1883
       - 9001:9001
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    command: mosquitto -c /mosquitto/config/mosquitto.conf
