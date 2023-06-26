@@ -28,11 +28,11 @@ services:
       - 9001:9001
     volumes:
       - ./config:/mosquitto/config:rw
-      - ./data:/mosquitto/data:rw
+      - ./mosdata:/mosquitto/data:rw
       - ./log:/mosquitto/log:rw
     command: mosquitto -c mosquitto/config/mosquitto.conf
 
 volumes:
   config:
-  data:
+  mosdata:
   log:
