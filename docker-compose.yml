@@ -27,6 +27,12 @@ services:
       - 1883:1883
       - 9001:9001
     volumes:
-      - ./mosquitto/data
-      - ./mosquitto/log
+      - ./config:/mosquitto/config:rw
+      - ./data:/mosquitto/data:rw
+      - ./log:/mosquitto/log:rw
     command: mosquitto -c mosquitto/config/mosquitto.conf
+
+volumes:
+  config:
+  data:
+  log:
